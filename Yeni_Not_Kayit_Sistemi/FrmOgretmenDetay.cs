@@ -61,6 +61,7 @@ namespace Yeni_Not_Kayit_Sistemi
             maskedTextBox1Numara.Text = dataGridView1.Rows[secilen].Cells[1].Value.ToString();
             textBox2Soyad.Text = dataGridView1.Rows[secilen].Cells[3].Value.ToString();
             textBox1Ad.Text = dataGridView1.Rows[secilen].Cells[2].Value.ToString();
+
         }
 
         private void button2NotKaydet_Click(object sender, EventArgs e)
@@ -75,10 +76,10 @@ namespace Yeni_Not_Kayit_Sistemi
             ortalama = (s1 + s2 + s3) / 3;
             LblOrtalama.Text = ortalama.ToString();
 
-            int gecenSayisi = GetCountByDurum(true);
-            int kalanSayisi = GetCountByDurum(false);
-            LblGecensayisi.Text=gecenSayisi.ToString();
-            LblKalanSayisi.Text=kalanSayisi.ToString();
+            //int gecenSayisi = GetCountByDurum(true);
+            //int kalanSayisi = GetCountByDurum(false);
+            //LblGecensayisi.Text=gecenSayisi.ToString();
+            //LblKalanSayisi.Text=kalanSayisi.ToString();
             if (ortalama > 50)
             {
                 durum = "True";
@@ -107,15 +108,24 @@ namespace Yeni_Not_Kayit_Sistemi
         }
 
 
-        private int GetCountByDurum(bool durum)
+
+        private void button1KayitGincelle_Click_1(object sender, EventArgs e)
         {
             baglanti.Open();
-            SqlCommand komut = new SqlCommand("SELECT COUNT * FROM TBLDERS WHERE DURUM=@P1", baglanti);
-            komut.Parameters.AddWithValue("@P1", durum.ToString());
-            int count = (int)komut.ExecuteScalar();
+            SqlCommand komut =
+                new SqlCommand(
+                    "update TBLDERS set OGRAD=@P1,OGRSOYAD=@P2 WHERE OGRNUMARA=@P3",
+                    baglanti);
+            komut.Parameters.AddWithValue("@P1", textBox1Ad.Text);
+            komut.Parameters.AddWithValue("@P2", textBox2Soyad.Text);
+            komut.Parameters.AddWithValue("@P3", maskedTextBox1Numara.Text);
+       
+
+
+            komut.ExecuteNonQuery();
             baglanti.Close();
+            MessageBox.Show("Ogrenci bILGILERI Guncellendi");
             this.tBLDERSTableAdapter.Fill(this.dbNotKayitDataSet.TBLDERS);
-            return count;
         }
     }
 }

@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1KayitGincelle = new System.Windows.Forms.Button();
             this.maskedTextBox1Numara = new System.Windows.Forms.MaskedTextBox();
             this.button1OgrKaydet = new System.Windows.Forms.Button();
             this.textBox2Soyad = new System.Windows.Forms.TextBox();
@@ -77,6 +78,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1KayitGincelle);
             this.groupBox1.Controls.Add(this.maskedTextBox1Numara);
             this.groupBox1.Controls.Add(this.button1OgrKaydet);
             this.groupBox1.Controls.Add(this.textBox2Soyad);
@@ -86,10 +88,20 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(327, 319);
+            this.groupBox1.Size = new System.Drawing.Size(286, 334);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ogrenci Ekle";
+            // 
+            // button1KayitGincelle
+            // 
+            this.button1KayitGincelle.Location = new System.Drawing.Point(71, 258);
+            this.button1KayitGincelle.Name = "button1KayitGincelle";
+            this.button1KayitGincelle.Size = new System.Drawing.Size(200, 50);
+            this.button1KayitGincelle.TabIndex = 7;
+            this.button1KayitGincelle.Text = "Kayit Guncelle";
+            this.button1KayitGincelle.UseVisualStyleBackColor = true;
+            this.button1KayitGincelle.Click += new System.EventHandler(this.button1KayitGincelle_Click_1);
             // 
             // maskedTextBox1Numara
             // 
@@ -162,7 +174,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(345, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(352, 319);
+            this.groupBox2.Size = new System.Drawing.Size(296, 334);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Not girisi";
@@ -233,9 +245,9 @@
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label8);
             this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Location = new System.Drawing.Point(737, 22);
+            this.groupBox3.Location = new System.Drawing.Point(668, 22);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(352, 319);
+            this.groupBox3.Size = new System.Drawing.Size(460, 334);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Sinif Bilgisi";
@@ -248,7 +260,6 @@
             this.LblGecensayisi.Size = new System.Drawing.Size(41, 29);
             this.LblGecensayisi.TabIndex = 6;
             this.LblGecensayisi.Text = "00";
-            //this.LblGecensayisi.Click += new System.EventHandler(this.LblGecensayisi_Click);
             // 
             // LblKalanSayisi
             // 
@@ -475,5 +486,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn oRTALAMADataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dURUMDataGridViewCheckBoxColumn;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1Numara;
+        private System.Windows.Forms.Button button1KayitGincelle;
     }
 }
